@@ -1,0 +1,266 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@import '../../theme/theme';
+
+$video-ratio: 16 / 9;
+
+.about {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $text-color;
+  color: $background-color;
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 3rem;
+  box-sizing: border-box;
+  z-index: $popover-layer;
+
+  h1,
+  h2,
+  h3 {
+    font-weight: normal;
+  }
+
+  h1 {
+    width: 100%;
+
+    @media (max-width: $min-width) {
+      width: 90%;
+      margin: 0;
+    }
+  }
+
+  h1,
+  h2 {
+    font-size: 1.75rem;
+    font-feature-settings: 'ss01';
+    line-height: 1.75rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin: 0 auto;
+    padding-bottom: 1rem !important;
+  }
+
+  h2 + h3 {
+    padding-top: 0;
+  }
+
+  p {
+    padding-top: 0;
+    padding-bottom: 1rem;
+    + h3 {
+      padding-top: 1rem;
+    }
+    + h2 {
+      padding-top: 2rem;
+    }
+  }
+
+  a {
+    color: $background-color;
+    text-decoration: none;
+    border-bottom: solid $line-width * 1.1 $background-color;
+    padding-bottom: 0;
+
+    &:hover {
+      color: $background-color !important;
+      border: 0;
+    }
+  }
+
+  .column-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+
+    div {
+      flex: 1;
+      padding: 0;
+      margin-right: 2rem;
+      min-width: 15rem;
+      padding-bottom: 2rem;
+
+      h3 {
+        margin: 0;
+      }
+
+      &:nth-of-type(even) {
+        margin-right: 0;
+      }
+    }
+
+    .single-column {
+      margin-left: 0;
+      max-width: 15rem;
+
+      @media (max-width: 711px) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .credits-intro {
+    * {
+      width: 100%;
+    }
+    padding-top: 1rem;
+
+    h2 {
+      padding-bottom: 1rem;
+    }
+
+    h3 {
+      padding-top: 1rem;
+    }
+  }
+
+  .credits {
+    padding: 0;
+    padding-top: 1rem;
+
+    * {
+      width: 100%;
+    }
+
+    a {
+      border: 0;
+      padding: 0;
+    }
+
+    > h3 {
+      width: initial;
+    }
+
+    &.mod-thanks {
+      padding-top: 0;
+    }
+
+    &.column-wrapper {
+      h3 {
+        padding-bottom: 1rem !important;
+
+        a {
+          border-bottom: $line-width * 1.1 solid $black-color;
+          &:hover {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  .close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+
+    @media (max-width: $min-width) {
+      position: absolute;
+    }
+  }
+
+  svg * {
+    fill: $background-color;
+    stroke: $background-color;
+  }
+
+  .colophon {
+    position: relative;
+    margin-top: 2rem;
+    pointer-events: none;
+
+    &, * {
+      padding: 0;
+    }
+  }
+
+  .colophon a {
+    border: 0;
+    pointer-events: all;
+  }
+
+  .colophon-divider {
+    border-color: $background-color;
+    width: 0;
+    height: 2.5rem;
+  }
+
+  .privacy-and-terms {
+    font-size: 0.5rem;
+    text-align: right;
+    margin-top: -3rem;
+
+    a {
+      border-bottom-width: $line-width * 0.5;
+    }
+  }
+}
+
+.about-content {
+  &.mod-colophon {
+    padding-top: 2rem;
+  }
+
+  * {
+    width: 66.666%;
+    margin: 0 auto;
+    line-height: 1.25;
+    user-select: text;
+
+    @media screen and (max-width: $min-width) {
+      width: 90vw;
+      max-width: $mobile-wrapper-width;
+    }
+  }
+}
+
+p + .about-video-container {
+  margin-top: 1rem;
+}
+
+.about-video-container {
+  position: relative;
+  width: 50%;
+  padding-bottom: 50% / $video-ratio;
+  height: 0;
+  margin: 0 auto 2rem;
+  background: $background-color;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+
+  @media screen and (max-width: $min-width) and (min-width: $mobile-wrapper-width * (1 / 0.9)) {
+    width: $mobile-wrapper-width;
+    padding-bottom: $mobile-wrapper-width / $video-ratio;
+  }
+
+  @media screen and (max-width: $mobile-wrapper-width * (1 / 0.9)) {
+    width: 90vw;
+    padding-bottom: 90vw / $video-ratio;
+  }
+}

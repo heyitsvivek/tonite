@@ -1,0 +1,112 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@import '../../theme/theme';
+@import '../../theme/util';
+
+body:not(.mod-mobile) .button-item:hover {
+  color: $white-color;
+  fill: $white-color;
+
+  &.mod-dark {
+    color: $black-color;
+    fill: $black-color;
+  }
+
+  .button-item-label {
+    display: inline;
+  }
+}
+
+.aligner.mod-top-left {
+  .button-item + .button-item {
+    margin-left: .2rem;
+  }
+}
+
+.button-item {
+  @extend .mod-fill;
+  @extend .mod-no-stroke;
+
+  margin: 0;
+  cursor: pointer;
+  line-height: 1.3em;
+
+  + .button-item {
+    margin-top: 0 !important;
+  }
+
+  &.mod-disabled {
+    cursor: not-allowed;
+
+    .button-item-icon svg * {
+      fill: $inactive-color;
+      stroke: $inactive-color;
+    }
+  }
+
+  &.mod-dark {
+    color: $black-color;
+    fill: $black-color;
+  }
+
+  &.mod-text {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    white-space: pre-wrap;
+  }
+}
+
+.button-item-label {
+  display: none;
+  font-size: 1.2rem;
+  line-height: 1rem;
+
+  + .button-item-icon {
+    margin-left: .5rem;
+    top: .58rem;
+  }
+}
+
+@media (max-width: $min-width) {
+  .mod-mobile .button-item {
+    pointer-events: none;
+  }
+
+  .mod-mobile .button-item-label {
+    display: inline-block;
+    opacity: 0;
+    pointer-events: none;
+    animation: fadeOut 5s forwards;
+  }
+
+  .mod-mobile .close {
+    pointer-events: all;
+  }
+}
+
+.button-item-icon {
+  display: inline-block;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; pointer-events: all; }
+  50% { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}

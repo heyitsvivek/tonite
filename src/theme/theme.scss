@@ -1,0 +1,37 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+$max-width: 1920px;
+$min-width: 1024px;
+$mobile-wrapper-width: ($min-width * 2) / 3;
+
+$max-base-factor: 40px;
+$min-base-factor: 20px;
+$base-factor: ($min-base-factor / $min-width) * 100vw;
+$line-width: .075rem;
+
+// Colors
+$background-color: #000;
+$text-color: #ff0;
+$inactive-color: transparentize($text-color, .5);
+$white-color: #fff;
+$black-color: #000;
+$transparent-color: rgba(0, 0, 0, 0);
+
+// Z indices
+$scene-layer: 10;
+$cms-layer: 19;
+$interface-layer: 20;
+$progressbar-layer: 21;
+$popover-layer: 30;
+$overlay-button-layer: 40;
